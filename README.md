@@ -1,4 +1,4 @@
-# systemsoftware-lab
+# SS-Lab
 KTU system software lab programs explained
 
 1.CPU Scheduling Algorithms
