@@ -1,96 +1,99 @@
 #include<stdio.h>
-#include <stdlib.h>
-// WAITING TIME FUNCTION
-void findWaitingTime(int processes[], int n,int bt[], int wt[])
+void findavgtime(int process[],int n,int brt[],int art[])
 {
-  wt[0]=0;
- for (int i = 1; i < n ; i++ )
-		wt[i] = bt[i-1] + wt[i-1] ;
+int wt[10],tat[10],t,total_tat=0,total_wt=0,i,sum_burst=0;
+float avg_wt=0,avg_tat=0;
+wt[0]=0;
+for(t=1;t<n;t++)
+{	sum_burst=sum_burst+brt[t-1];
+	wt[t]=sum_burst-art[t]+1;
+       total_wt=total_wt+wt[t];
+	
+
 }
-// TURN AROUND TIME FUNCTION
-void findTurnAroundTime( int processes[], int n,
-				int bt[], int wt[], int tat[])
+
+for(i=0;i<n;i++)
 {
-	for (int i = 0; i < n ; i++)
-		tat[i] = bt[i] + wt[i];
+	tat[i]=wt[i]+brt[i];
+	total_tat=total_tat+tat[i];
 }
-// AVERAGE TIME
-void findavgTime( int processes[], int n, int bt[])
+printf("\nprocess\t waitingtime\t turntime\t\n");
+for(i=0;i<n;i++)
 {
-	int wt[n], tat[n], total_wt = 0, total_tat = 0;
+	printf("%d\t%d\t%d\t\n",process[i],wt[i],tat[i]);
+}
 
-	findWaitingTime(processes, n, bt, wt);
+	
+avg_wt=(float)total_wt/(float)n;
+avg_tat=(float)total_tat/(float)n;
+printf("average waiting time and turnaround time is %f %f\n",avg_wt,avg_tat);
+}
+//main program
+void main()
 
-	findTurnAroundTime(processes, n, bt, wt, tat);
 
-	printf("Processes Burst time Waiting time Turn around time\n");
+{
 
-	for (int i=0; i<n; i++)
+int prr,arr,btt;
+int process[10],art[10],brt[10];//arrays to store process numbers,arrival time,burs ttime
+char str[100];
+int k=0,i=0,j,n=0,temp=0,pos,t=0,te=0;
+FILE *fpt=fopen("fcfs.txt","r");
+	printf("process arrtime bursttime\n");
+	//the following loop will read the data from a file using file pointer fp and store datas to corresponding array
+	while(fscanf(fpt,"%d:%d:%d",&prr,&arr,&btt)!=EOF)
 	{
-		total_wt = total_wt + wt[i];
-		total_tat = total_tat + tat[i];
-		printf(" %d ",processes[i]);
-		printf("	 %d ", bt[i] );
-		printf("	 %d",wt[i] );
-		printf("	 %d\n",tat[i] );
+	process[i]=prr;
+	art[i]=arr;
+	brt[i]=btt;
+	printf("%d %d %d\n",process[i],art[i],brt[i]);
+	i++;
+	n++;
 	}
-	int s=(float)total_wt / (float)n;
-	int t=(float)total_tat / (float)n;
-	printf("Average waiting time = %d",s);
-	printf("\n");
-	printf("Average turn around time = %d ",t);
-}
 
-// Driver code
-int main()
+printf ("%d\n",n);
+//sort the processes by their arrival time order
+for(k=0;k<n;k++)
+ {
+
+ 	 for(j=k+1;j<=n;j++)
+	{
+
+		
+		if(art[k]>=art[j])
+	
+		{	
+  			te=art[k];
+  			art[k]=art[j];
+  			art[j]=te;
+  			
+			t=process[k];
+ 			process[k]=process[j];
+   			process[j]=t;
+  			
+			te=brt[k];
+  			brt[k]=brt[j];
+  			brt[j]=te;
+		}
+	}
+
+ }
+printf("process arrtime bursttime\n");
+for(i=0;i<n;i++)
 {
-  int processes[10];
-  FILE *fp;
-  char arr[10],btt[10],prr[10];
-  int ar[10];
-  int bt[10];
-  int n;
-  char str[100];
-  fp = fopen("test.txt","r");
-  if(fp == NULL)
-  {
-    printf("\nError in file opening");
-  }
-  fgets(str,2,fp);
-  n = atoi(str);
-  for (int i = 0; i < n; i++) {
-    fscanf(fp,"%s : %s : %s",prr,arr,btt);
-    processes[i] = atoi(prr);
-    ar[i] = atoi(arr);
-    bt[i] = atoi(btt);
-  }
-  int pos;
-  for(int i=0;i<n;i++)
-   {
-       pos=i;
-       for(int j=i+1;j<n;j++)
-       {
-           if(ar[j]<ar[pos])
-               pos=j;
-       }
+	printf("%d %d %d\n",process[i],art[i],brt[i]);
+}
+printf ("gantt chart\n");
+for(i=0;i<n;i++)
+	{
+		printf("|%d|",process[i]);
+	}
+findavgtime(process,n,brt,art);
 
-      int temp=ar[i];
-       ar[i]=ar[pos];
-       ar[pos]=temp;
-
-       temp=processes[i];
-       processes[i]=processes[pos];
-       processes[pos]=temp;
-
-       temp=bt[i];
-       bt[i]=bt[pos];
-       bt[pos]=temp;
-   }
-for (int i = 0; i < n; i++) {
-  printf("\nP%d %d %d\n",processes[i],ar[i],bt[i]);
 }
 
-  fclose(fp);
-  findavgTime(processes,n,bt);
-	return 0;
-}
+
+
+
+
+
