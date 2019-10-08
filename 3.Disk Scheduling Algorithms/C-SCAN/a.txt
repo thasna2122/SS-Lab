@@ -1,0 +1,13 @@
+Algorithm C-SCAN
+
+Step 1 : create an array trackmovement[] 
+Step 2 : set i = 0
+Step 3 : set cur_track = 0
+Step 4 : read tracklist
+Step 5 : sort tracklist
+Step 6 : find the position of cur_track in tracklist
+Step 7 : repeat
+Step 8 : print track at position of tracklist
+Step 9 : position = position mod tracklist.length
+Step 10 : until position reaches back to cur_track
+

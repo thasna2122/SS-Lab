@@ -1,0 +1,13 @@
+
+
+Algorithm :SCAN
+
+
+Step 1 : create an array trackmovement[] 
+Step 2 : set i = 0
+Step 3 : set cur_track = 0
+Step 4 : read tracklist
+Step 5 : sort tracklist
+Step 6 : find the position of cur_track in tracklist
+Step 7 : print all track in tracklist from the cur_track to the end of tracklist
+Step 8 : print all track in tracklist in reverse order from cur_track to the beginning of tracklist 

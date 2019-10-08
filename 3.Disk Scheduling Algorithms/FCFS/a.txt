@@ -1,0 +1,12 @@
+Algorithm : FCFS
+
+
+Step 1 : create an array trackmovement[]
+ Step 2 : set i = 0
+Step 3 : read cur_track
+Step 4 : read tracklist
+Step 5 : for i from 1 to tracklist.n do
+Step 6 : print cur_track
+Step 7 : trackmovement[i − 1] = |tracklist[i] − tracklist[i − 1]|
+Step 8 : set cur_track = new_track
+
