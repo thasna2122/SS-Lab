@@ -1,11 +1,11 @@
 #include<stdio.h>
 void findavgtime(int process[],int n,int brt[],int art[])
 {
-int wt[10],tat[10],t,total_tat=0,total_wt=0,i,sum_burst=0;
+int wt[10],tat[10],t,total_tat=0,total_wt=0,i,sum_burst=0;//wt:waiting time,tat:turnaround time
 float avg_wt=0,avg_tat=0;
-wt[0]=0;
+wt[0]=0;//waiting time of first process is zero
 for(t=1;t<n;t++)
-{	sum_burst=sum_burst+brt[t-1];
+{	sum_burst=sum_burst+brt[t-1];//sumburst is the total time taken to complete a process 
 	wt[t]=sum_burst-art[t]+1;
        total_wt=total_wt+wt[t];
 	
@@ -88,7 +88,7 @@ for(i=0;i<n;i++)
 	{
 		printf("|%d|",process[i]);
 	}
-findavgtime(process,n,brt,art);
+findavgtime(process,n,brt,art);//call the function to find average waiting time and average turnaround time
 
 }
 
