@@ -1,0 +1,33 @@
+
+Algorithm: Wait
+
+Step 1 : procedure wait(s) 
+Step 2 : return s--- 
+
+Algorithm : Signal
+Step 1 : procedure signal(s) 
+Step 2 : return s + + 
+
+Algorithm: Producer
+Step 1 : procedure producer( ) 
+Step 2 : mutex =wait(mutex) 
+Step 3 : full =signal(full) 
+Step 4 : empty =wait(empty) 
+Step 5 : x + +
+Step 6 : print “Producer produces the item x"
+Step 7 : mutex =signal(mutex)
+
+
+Algorithm: Consumer
+Step 1 : procedure consumer( ) 
+Step 2 : mutex =wait(mutex) 
+Step 3 : full =wait(full)
+Step 4 : empty =signal(empty)
+Step 5 : print “Consumer consumes the item x" 
+Step 6 : x − −
+Step 7 : mutex =signal(mutex)
+
+
+
+
+
