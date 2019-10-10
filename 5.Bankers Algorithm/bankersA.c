@@ -1,5 +1,5 @@
-//AJIL T U
-//DATE: 10/10/19
+
+
 
 #include <stdio.h>
 struct file
