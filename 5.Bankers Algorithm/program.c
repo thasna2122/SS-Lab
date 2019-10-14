@@ -1,6 +1,3 @@
-
-
-
 #include <stdio.h>
 struct file
 {
@@ -84,7 +81,7 @@ void main()
                                 }
                         }
                 }
-                if(g==0) //Unsafe state
+                if(g==0) //Unsafe state.
                 {
                         printf("\n REQUEST NOT GRANTED- DEADLOCK OCCURRED");
                         printf("\n SYSTEM IS IN UNSAFE STATE");
