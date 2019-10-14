@@ -20,7 +20,7 @@ cu=cur;
 curr=cu;
 for(i=0;i<n;i++)
 {
-	scanf("%d",&a[i]);//read the requests into array
+	scanf("%d",&a[i]);//read aii the requests into array
 }
 total=0;
 		for(i=0;i<n;i++);
