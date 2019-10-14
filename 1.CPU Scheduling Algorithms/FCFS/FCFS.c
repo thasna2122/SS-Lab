@@ -35,7 +35,7 @@ void main()
 {
 
 int prr,arr,btt;
-int process[10],art[10],brt[10];//arrays to store process numbers,arrival time,burs ttime
+int process[10],art[10],brt[10];
 char str[100];
 int k=0,i=0,j,n=0,temp=0,pos,t=0,te=0;
 FILE *fpt=fopen("fcfs.txt","r");
