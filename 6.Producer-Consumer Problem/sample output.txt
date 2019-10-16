@@ -1,0 +1,30 @@
+Producer-Consumer Problem
+1.Produce
+2.Consume
+3.Exit
+
+Enter your choice: 1
+Enter the value: 53
+Producer produces the item 53
+Enter your choice: 1
+Enter the value: 92
+Producer produces the item 92
+Enter your choice: 1
+Enter the value: 36
+Producer produces the item 36
+Enter your choice: 1
+Enter the value: 41
+Producer produces the item 41
+Enter your choice: 1
+Buffer full
+Enter your choice: 2
+Consumer consumes item 41 
+Enter your choice: 2
+Consumer consumes item 36
+Enter your choice: 2
+Consumer consumes item 92
+Enter your choice: 2
+Consumer consumes item 53
+Enter your choice: 2
+Buffer empty
+Enter your choice: 3
